@@ -51,7 +51,11 @@ class LineUser {
       const user = await User.findOne({ userId });
 
       const conditionStr = message.split('?')[1];
-      const url = `${Locals.config().rentApiUrl}${conditionStr}`;
+      let url = `${Locals.config().rentApiUrl}${conditionStr}`;
+      if (!/orderType=/.test(url)) {
+        console.log('NOT COMPARE');
+        url += '&orderType=desc';
+      }
       const headers = {
         'X-CSRF-TOKEN': '',
         Cookie: '',

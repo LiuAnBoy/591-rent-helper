@@ -29,7 +29,6 @@ class UserNotify {
         code,
         grant_type: 'authorization_code',
         redirect_uri: `${Locals.config().url}/api/notify/token`,
-        // redirect_uri: `${Locals.config().url}/close`,
         client_id: Locals.config().notifyClientId,
         client_secret: Locals.config().notifySecret,
       },
